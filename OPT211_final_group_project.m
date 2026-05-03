@@ -98,18 +98,16 @@ colormap gray % Set the color of the aperture field plot
 axis equal % Set the display scale of the axes
 axis([0 apl 0 apl]) % Set axes limits to size of aperture field
 
-
 %% Intensity (Huy)
 fft_ap = fft2(ap); %perform fourier transformation
 fft_ap_centered = fftshift(fft_ap);  % shift zero frequency component to center
-intensity = real(abs(fft_ap_centered).^2);          % intensity
+intensity = real(fft_ap_centered.*conj(fft_ap_centered));          % intensity
 % Rescale intensity 
-intensity_rescaled = log1p(intensity)/max(log1p(intensity(:)));     
-%divide by max so that the intensities ranges from 0 to 1 
+intensity_rescaled = intensity.^0.45;     
 
 %% Plot Intensity 
 figure 
 imagesc(intensity_rescaled)  % Plot image of the aperture field 
 colormap hot % Set the color of the aperture field plot 
 axis equal % Set the display scale of the axes 
-axis([(apl-500)/2 (apl+500)/2 (apl-500)/2 (apl+500)/2])
+axis([(apl-250)/2 (apl+250)/2 (apl-250)/2 (apl+250)/2])
