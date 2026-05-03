@@ -7,7 +7,7 @@ c_row = round(1 + apl/2);
 c_col = round(1 + apl/2);
 
 
-prompt1 = 'What shape would you like? Rectangle, Square, Circle, Polygon: ';
+prompt1 = 'What shape would you like? Rectangle, Circle, Polygon: ';
 shape = input(prompt1,"s");
 
 %===============================Rectangle================================
@@ -23,14 +23,14 @@ if strcmpi('rectangle',shape) == 1
         numRow = input(prompt3);
 
         if numRow < 1 % If number of rows is less then 1 return
-            return 
+            return %Need Text Here to Redirect User
         end 
 
         prompt4 = 'Number of Columns: '; 
         numCol = input(prompt4);
 
         if numCol < 1 % If number of Columns less than 1 return 
-            return
+            return %Need Text Here to Redirect User
         end  %If more than 1 continue 
 
         prompt5 = 'Center to Center distance: ';
@@ -79,19 +79,176 @@ if strcmpi('rectangle',shape) == 1
 
         end
     end
-%====================Circle=======================================
+
+%========================Circle==================================
+
+%------------------------Columns---------------------------------
+
 elseif strcmpi('circle',shape) == 1
+
+    prompt2 = 'More than 1 [Y/N]: '; % How to pose question such that you ask for if user wants grid?
+    n = input(prompt2,"s"); % number of shapes, If more then 1 then give grid dimensions
     
-    prompt2 = 'More than 1?: '; %How to pose question such that you ask for if user wants grid?
-    n = input(prompt2); %number of shapes, If more then 1 then give grid dimensions
-%===================_______=========================================
+    if strcmpi('Y',n) == 1
+
+        prompt3 = 'Number of Rows: ';
+        numRow = input(prompt3);
+
+        if numRow < 1 % If number of rows is less then 1 return
+            return  %Need Text Here to Redirect User
+        end 
+
+        prompt4 = 'Number of Columns: '; 
+        numCol = input(prompt4);
+
+        if numCol < 1 % If number of Columns less than 1 return 
+            return %Need Text Here to Redirect User
+        end  %If more than 1 continue 
+
+        prompt5 = 'Center to Center distance: ';
+        d = input(prompt5); %distance between each shape
+
+    elseif strcmpi(n,'N') == 1
+        numRow = 1;
+        numCol = 1;
+        d = 0;
+    else
+
+    end 
+%-----------------------------------------------------
+
+    prompt6 = 'Radius: ';
+    r = input(prompt6);
+
+    % Define center positions for the circle lattice
+    rowCenters = c_row + ((1:numRow) - (numRow+1)/2) * d;
+    colCenters = c_col + ((1:numCol) - (numCol+1)/2) * d;
+
+    % Draw circles
+    for ijk = 1:numRow
+        for lmn = 1:numCol
+
+            centerRow = rowCenters(ijk);
+            centerCol = colCenters(lmn);
+
+            circle = (x - centerCol).^2 + (y - centerRow).^2 <= r^2;
+
+            ap(circle) = 1;
+
+        end
+    end
+
+%===================Polygon=========================================
+
+elseif strcmpi('polygon',shape) == 1
+
+    prompt2 = 'More than 1 [Y/N]: ';
+    n = input(prompt2,"s");
+
+    if strcmpi('Y',n) == 1
+
+        prompt3 = 'Number of Rows: ';
+        numRow = input(prompt3);
+
+        if numRow < 1
+            return %Need Text Here to Redirect User
+        end
+
+        prompt4 = 'Number of Columns: ';
+        numCol = input(prompt4);
+
+        if numCol < 1
+            return %Need Text Here to Redirect User
+        end
+
+        prompt5 = 'Center to Center distance: ';
+        d = input(prompt5);
+
+    elseif strcmpi(n,'N') == 1
+
+        numRow = 1;
+        numCol = 1;
+        d = 0;
+
+    else
+        return %Need Text Here to Redirect User
+    end
+
+    prompt6 = 'Number of Sides (3-25): ';
+    numTri = input(prompt6);
+
+    if numTri < 3
+        return %Need Text Here to Redirect User
+    end
+
+    prompt7 = 'Side Length: ';
+    L = input(prompt7);
+
+    if L <= 0
+        return %Need Text Here to Redirect User
+    end
+
+    % Define grid center positions
+    rowCenters = c_row + ((1:numRow) - (numRow+1)/2) * d;
+    colCenters = c_col + ((1:numCol) - (numCol+1)/2) * d;
+
+    % Angle of each triangle at the center
+    apexAngle = 2*pi/numTri;
+    halfAngle = apexAngle/2;
+
+    % Height and base width determined by side length
+    H = L*cos(halfAngle);
+    B = 2*L*sin(halfAngle);
+
+    % First triangle centered at 90 degrees from the x-axis
+    theta0 = pi/2;
+
+    % Draw polygon pattern at every grid center
+    for rowIndex = 1:numRow
+        for colIndex = 1:numCol
+
+            centerRow = rowCenters(rowIndex);
+            centerCol = colCenters(colIndex);
+
+            % Draw each triangle inside this polygon pattern
+            for triIndex = 1:numTri
+
+                % Center angle of this triangle
+                thetaCenter = theta0 + (triIndex-1)*apexAngle;
+
+                % Left and right edge angles
+                theta1 = thetaCenter - halfAngle;
+                theta2 = thetaCenter + halfAngle;
+
+                % Apex is at the center of this polygon
+                v1 = [centerCol, centerRow];
+
+                % Outer two vertices
+                v2 = [centerCol + L*cos(theta1), centerRow - L*sin(theta1)];
+                v3 = [centerCol + L*cos(theta2), centerRow - L*sin(theta2)];
+
+                % Create triangle
+                polygon = inpolygon(x, y, ...
+                    [v1(1) v2(1) v3(1)], ...
+                    [v1(2) v2(2) v3(2)]);
+
+                % Fill aperture
+                ap(polygon) = 1;
+
+            end
+        end
+    end
+
+%===================Invalid Input=========================================
+
 else
-    z = 3;
+    %Need Text Here to Redirect User 
     return
 end
 
 
- % Plot the aperture field
+
+% Plot the aperture field
 figure
 imagesc(ap) % Plot image of the aperture field
 colormap gray % Set the color of the aperture field plot
