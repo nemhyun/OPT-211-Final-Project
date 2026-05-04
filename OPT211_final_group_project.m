@@ -1,3 +1,15 @@
+% Aurelio Fusco, Huy Nguyen, & Noah Selo
+% Optics 211
+% 5/4/2026
+% Final Project
+% This script allows the user to generate an aperture of their choosing,
+% and prompts the user to input the shape of the aperture (Rectangle, 
+% Circle, Polygon with number of sides of users choice), number of
+% apertures, as well as the dimensions of the aperture(s). It then produces
+% a figure of the aperture, and its resulting diffraction pattern as an
+% image. Using this image, a cross section of the intensity is graphed.
+
+
 close all;
 clear;
 
