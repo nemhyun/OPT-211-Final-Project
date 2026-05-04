@@ -1,3 +1,6 @@
+close all;
+clear;
+
 % Define Aperture field
 apl=5000; % Size of the aperture field
 ap=zeros(apl); % Define actual aperture plane
@@ -268,3 +271,35 @@ imagesc(intensity_rescaled)  % Plot image of the aperture field
 colormap hot % Set the color of the aperture field plot 
 axis equal % Set the display scale of the axes 
 axis([(apl-250)/2 (apl+250)/2 (apl-250)/2 (apl+250)/2])
+
+%% =================CROSS SECTIONS (Noah)=================
+
+% Center of diffraction pattern
+center = round(apl/2);
+
+% Extract cross sections
+Ix = intensity_rescaled(center, :);   % Horizontal
+Iy = intensity_rescaled(:, center);   % Vertical
+
+% Normalize
+Ix = Ix / max(Ix);
+Iy = Iy / max(Iy);
+
+% Centered coordinate axis
+coords = (-apl/2):(apl/2 - 1);
+
+%--------HORIZONTAL--------
+figure
+plot(coords, Ix, 'LineWidth', 1.5)
+title('Horizontal Cross Section (y = 0)')
+xlabel('Spatial Coordinate (pixels)')
+ylabel('Intensity')
+grid on
+
+%--------VERTICAL--------
+figure
+plot(coords, Iy, 'LineWidth', 1.5)
+title('Vertical Cross Section (x = 0)')
+xlabel('Spatial Coordinate (pixels)')
+ylabel('Intensity')
+grid on
