@@ -7,7 +7,8 @@
 % Circle, Polygon with number of sides of users choice), number of
 % apertures, as well as the dimensions of the aperture(s). It then produces
 % a figure of the aperture, and its resulting diffraction pattern as an
-% image. Using this image, a cross section of the intensity is graphed.
+% image. Using this image, a cross section of the intensity is graphed 
+% across the x=0 and y=0 axies.
 
 
 close all;
