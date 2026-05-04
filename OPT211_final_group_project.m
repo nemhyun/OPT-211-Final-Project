@@ -305,21 +305,38 @@ colormap gray % Set the color of the aperture field plot
 axis equal % Set the display scale of the axes
 axis([0 apl 0 apl]) % Set axes limits to size of aperture field
 
-%% Intensity (Huy)
+%% Intensity
 fft_ap = fft2(ap); %perform fourier transformation
 fft_ap_centered = fftshift(fft_ap);  % shift zero frequency component to center
 intensity = real(fft_ap_centered.*conj(fft_ap_centered));          % intensity
 % Rescale intensity 
 intensity_rescaled = intensity.^0.45;     
 
-%% Plot Intensity 
+%% Plot Intensity (5000px*5000px range)
+figure 
+imagesc(intensity_rescaled)  % Plot image of the aperture field 
+colormap hot % Set the color of the aperture field plot 
+axis image % Set the display scale of the axes 
+title('Full-Field Far Diffraction Pattern') % Title of plot
+xlabel('Pixels') % Labels x axis
+ylabel('Pixels') % Labels y axis
+colorbar % Adds a colorbar
+ylabel(colorbar, 'Intensity') % Labels the colorbar
+
+
+%% Plot Intensity (250px*250px range)
 figure 
 imagesc(intensity_rescaled)  % Plot image of the aperture field 
 colormap hot % Set the color of the aperture field plot 
 axis equal % Set the display scale of the axes 
-axis([(apl-250)/2 (apl+250)/2 (apl-250)/2 (apl+250)/2])
+axis([(apl-250)/2 (apl+250)/2 (apl-250)/2 (apl+250)/2]) % Zooms the field in
+title('Center-Field Far Diffraction Pattern') % Title of plot
+xlabel('Pixels') % Labels x axis
+ylabel('Pixels') % Labels y axis
+colorbar % Adds a colorbar
+ylabel(colorbar, 'Intensity') % Labels the colorbar
 
-%% =================CROSS SECTIONS (Noah)=================
+%% =================CROSS SECTIONS=================
 
 % Center of diffraction pattern
 center = round(apl/2);
