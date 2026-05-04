@@ -16,6 +16,7 @@ clear;
 % Define Aperture field
 apl=5000; % Size of the aperture field
 ap=zeros(apl); % Define actual aperture plane
+[x, y] = meshgrid(1:apl, 1:apl); % Defining x and y for circle & polygon function
 
 % Center of Apeture field:
 c_row = round(1 + apl/2);
