@@ -67,9 +67,22 @@ if strcmpi('rectangle',shape) == 1
     %----------------Prompts for Dimensions--------------
     prompt6 = 'Height: ';
     h = input(prompt6); % Height of Rectangle 
+    
+    if h <= 0 %display error if dimensions aren't positive
+        disp('Error. Height must be greater than 0. Please see help file for more information.')
+        return %Need Text Here to Redirect User
+    end
 
+
+    
     prompt7 = 'Width: ';
     w = input(prompt7); % Width of Rectangle
+    
+    if w <= 0 %display error if dimensions aren't positive
+        disp('Error. Width must be greater than 0. Please see help file for more information.')
+        return %Need Text Here to Redirect User
+    end
+    
     %---------------------------------------------
 
     % Define center positions
@@ -142,6 +155,12 @@ elseif strcmpi('circle',shape) == 1
 
     prompt6 = 'Radius: ';
     r = input(prompt6);
+    
+    if r <= 0 %display error if dimensions aren't positive
+        disp('Error. Radius must be greater than 0. Please see help file for more information.')
+        return %Need Text Here to Redirect User
+    end
+
 
     % Define center positions for the circle lattice
     rowCenters = c_row + ((1:numRow) - (numRow+1)/2) * d;
