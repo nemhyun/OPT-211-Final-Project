@@ -42,9 +42,6 @@ if strcmpi('rectangle',shape) == 1
         if numRow < 1 % If number of rows is less then 1 return
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return
-        elseif ~isnumeric(numRow) %display error if Rows entered isn't a number
-            disp('Error. Rows must be a valid number. Please see help file for more information.')
-            return
         end 
 
         prompt4 = 'Number of Columns: '; 
@@ -53,9 +50,6 @@ if strcmpi('rectangle',shape) == 1
         if numCol < 1 % If number of Columns less than 1 return 
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return 
-        elseif ~isnumeric(numCol) %display error if Columns entered isn't a number
-            disp('Error. Columns must be a valid number. Please see help file for more information.')
-            return
         end  %If more than 1 continue 
 
         prompt5 = 'Center to Center distance: ';
@@ -76,10 +70,7 @@ if strcmpi('rectangle',shape) == 1
     
     if h <= 0 %display error if height entered isn't positive
         disp('Error. Height must be greater than 0. Please see help file for more information.')
-        return %Need Text Here to Redirect User
-    elseif ~isnumeric(h) %display error if height entered isn't a number
-        disp('Error. Height must be a valid number. Please see help file for more information.')
-        return
+        return 
     end
 
 
@@ -90,9 +81,6 @@ if strcmpi('rectangle',shape) == 1
     if w <= 0 %display error if width entered isn't positive
         disp('Error. Width must be greater than 0. Please see help file for more information.')
         return 
-    elseif ~isnumeric(w) %display error if width entered isn't a number
-        disp('Error. Width must be a valid number. Please see help file for more information.')
-        return
     end
     
     %---------------------------------------------
@@ -142,9 +130,6 @@ elseif strcmpi('circle',shape) == 1
         if numRow < 1 %Display error if number of rows is less then 1
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return
-        elseif ~isnumeric(numRow) %display error if Rows entered isn't a number
-            disp('Error. Rows must be a valid number. Please see help file for more information.')
-            return
         end 
 
         prompt4 = 'Number of Columns: '; 
@@ -153,10 +138,6 @@ elseif strcmpi('circle',shape) == 1
         if numCol < 1 %Display error if number of Columns less than 1 
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return
-        elseif ~isnumeric(numCol) %display error if Columns entered isn't a number
-            disp('Error. Columns must be a valid number. Please see help file for more information.')
-            return
-
         end  %If more than 1 continue 
 
         prompt5 = 'Center to Center distance: ';
@@ -177,9 +158,6 @@ elseif strcmpi('circle',shape) == 1
     
     if r <= 0 %display error if radius isn't positive
         disp('Error. Radius must be greater than 0. Please see help file for more information.')
-        return 
-    elseif ~isnumeric(r) %display error if radius isn't a number
-        disp('Error. Radius must be a valid number. Please see help file for more information.')
         return 
     end
 
@@ -214,11 +192,8 @@ elseif strcmpi('polygon',shape) == 1
         prompt3 = 'Number of Rows: ';
         numRow = input(prompt3);
 
-        if numRow < 1 %if number of rows is less than 1 return
+        if numRow < 1 %Display error if number of rows is less than 1 
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
-            return %Need Text Here to Redirect User
-        elseif ~isnumeric(numRow) %display error if Rows entered isn't a number
-            disp('Error. Rows must be a valid number. Please see help file for more information.')
             return
         end
 
@@ -227,9 +202,6 @@ elseif strcmpi('polygon',shape) == 1
 
         if numCol < 1 %Display error if number of columns is less than 1
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
-            return %Need Text Here to Redirect User
-        elseif ~isnumeric(numCol) %display error if Columns entered isn't a number
-            disp('Error. Columns must be a valid number. Please see help file for more information.')
             return
         end
 
@@ -256,9 +228,6 @@ elseif strcmpi('polygon',shape) == 1
     elseif numTri > 25 %display error if number of sides is greater than 25
         disp('Error. Number of sides cannot be greater than 25. Please see help file for more information.')
         return
-    elseif ~isnumeric(numTri) %display error if number of sides isn't a number
-        disp('Error. Number of sides must be a valid number. Please see help file for more information.')
-        return
     end
 
     prompt7 = 'Side Length: ';
@@ -267,9 +236,6 @@ elseif strcmpi('polygon',shape) == 1
    if L <= 0 %Display error if length is negative
         disp('Error. Side length must be greater than 0. Please see help file for more information.')
         return 
-    elseif ~isnumeric(L) %display error if length isn't a number
-        disp('Error. Length must be a valid number. Please see help file for more information.')
-        return
     end
     
     % Define grid center positions
