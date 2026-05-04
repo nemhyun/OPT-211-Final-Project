@@ -214,10 +214,11 @@ elseif strcmpi('polygon',shape) == 1
     prompt7 = 'Side Length: ';
     L = input(prompt7);
 
-    if L <= 0
+   if L <= 0
+        disp('Error. Side length must be greater than 0. Please see help file for more information.')
         return %Need Text Here to Redirect User
     end
-
+    
     % Define grid center positions
     rowCenters = c_row + ((1:numRow) - (numRow+1)/2) * d;
     colCenters = c_col + ((1:numCol) - (numCol+1)/2) * d;
