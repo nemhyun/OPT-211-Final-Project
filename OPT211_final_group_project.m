@@ -312,7 +312,9 @@ intensity = real(fft_ap_centered.*conj(fft_ap_centered));          % intensity
 % Rescale intensity 
 intensity_rescaled = intensity.^0.45;     
 
-%% Plot Intensity (5000px*5000px range)
+
+%%==============IMAGE OF DIFFRACTION PATTERN=====================
+%----------Plot Intensity (5000px*5000px range)----------
 figure 
 imagesc(intensity_rescaled)  % Plot image of the aperture field 
 colormap hot % Set the color of the aperture field plot 
@@ -324,7 +326,7 @@ colorbar % Adds a colorbar
 ylabel(colorbar, 'Intensity') % Labels the colorbar
 
 
-%% Plot Intensity (250px*250px range)
+%-------------Plot Intensity (250px*250px range)-----------
 figure 
 imagesc(intensity_rescaled)  % Plot image of the aperture field 
 colormap hot % Set the color of the aperture field plot 
