@@ -40,6 +40,7 @@ if strcmpi('rectangle',shape) == 1
         numRow = input(prompt3);
 
         if numRow < 1 % If number of rows is less then 1 return
+            disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return %Need Text Here to Redirect User
         end 
 
@@ -47,6 +48,7 @@ if strcmpi('rectangle',shape) == 1
         numCol = input(prompt4);
 
         if numCol < 1 % If number of Columns less than 1 return 
+            disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return %Need Text Here to Redirect User
         end  %If more than 1 continue 
 
@@ -58,7 +60,8 @@ if strcmpi('rectangle',shape) == 1
         numCol = 1;
         d = 0;
     else
-
+        disp('Error. Response needs to be either Y or N. Please see help file for more information.')
+        return
     end 
 
     %----------------Prompts for Dimensions--------------
@@ -112,6 +115,7 @@ elseif strcmpi('circle',shape) == 1
         numRow = input(prompt3);
 
         if numRow < 1 % If number of rows is less then 1 return
+            disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return  %Need Text Here to Redirect User
         end 
 
@@ -119,6 +123,7 @@ elseif strcmpi('circle',shape) == 1
         numCol = input(prompt4);
 
         if numCol < 1 % If number of Columns less than 1 return 
+            disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return %Need Text Here to Redirect User
         end  %If more than 1 continue 
 
@@ -130,7 +135,8 @@ elseif strcmpi('circle',shape) == 1
         numCol = 1;
         d = 0;
     else
-
+        disp('Error. Response needs to be either Y or N. Please see help file for more information.')
+        return
     end 
 %-----------------------------------------------------
 
@@ -167,14 +173,16 @@ elseif strcmpi('polygon',shape) == 1
         prompt3 = 'Number of Rows: ';
         numRow = input(prompt3);
 
-        if numRow < 1
+        if numRow < 1 %if number of rows is less than 1 return
+            disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return %Need Text Here to Redirect User
         end
 
         prompt4 = 'Number of Columns: ';
         numCol = input(prompt4);
 
-        if numCol < 1
+        if numCol < 1 %if number of columns is less than 1 return
+            disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return %Need Text Here to Redirect User
         end
 
@@ -188,13 +196,18 @@ elseif strcmpi('polygon',shape) == 1
         d = 0;
 
     else
-        return %Need Text Here to Redirect User
+        disp('Error. Response needs to be either Y or N. Please see help file for more information.')
+        return
     end
 
     prompt6 = 'Number of Sides (3-25): ';
     numTri = input(prompt6);
 
     if numTri < 3
+        disp('Error. Number of sides cannot be less than 3. Please see help file for more information.')
+        return %Need Text Here to Redirect User
+    elseif numTri > 25
+        disp('Error. Number of sides cannot be greater than 25. Please see help file for more information.')
         return %Need Text Here to Redirect User
     end
 
@@ -259,7 +272,7 @@ elseif strcmpi('polygon',shape) == 1
 %===================Invalid Input=========================================
 
 else
-    %Need Text Here to Redirect User 
+    disp('Error in input argument aperture shape. Please see help file for more information.')  
     return
 end
 
