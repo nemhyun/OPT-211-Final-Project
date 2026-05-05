@@ -1,11 +1,7 @@
 % Aurelio Fusco, Huy Nguyen, & Noah Selo
-%
 % Optics 211
-%
 % 5/4/2026
-%
 % Final Project
-%
 % This script allows the user to generate an aperture of their choosing,
 % and prompts the user to input the shape of the aperture (Rectangle, 
 % Circle, Polygon with number of sides of users choice), number of
@@ -13,12 +9,6 @@
 % a figure of the aperture, and its resulting diffraction pattern as an
 % image. Using this image, a cross section of the intensity is graphed 
 % across the x=0 and y=0 axies.
-%
-% The values input MUST answer the prompts correctly. Faliure to do this
-% will result in an error message or a system error. For the shapes prompt, 
-% the user MUST select one of the 3 given shapes properly spelled. For the 
-% dimensions and number of apertures, only positive numerical values can be entered.
-% 
 
 
 close all;
@@ -262,7 +252,7 @@ elseif strcmpi('polygon',shape) == 1
     B = 2*L*sin(halfAngle);
 
     % First triangle centered at 90 degrees from the x-axis
-    theta0 = pi/2;
+    theta0 = (3*pi)/2;
 
     % Draw polygon pattern at every grid center
     for rowIndex = 1:numRow
