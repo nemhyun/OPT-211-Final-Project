@@ -65,7 +65,8 @@ if strcmpi('rectangle',shape) == 1
     end 
 
     %----------------Prompts for Dimensions--------------
-    prompt6 = 'Height: ';
+
+    prompt6 = 'Height [px]: ';
     h = input(prompt6); % Height of Rectangle 
     
     if h <= 0 %display error if height entered isn't positive
@@ -75,7 +76,7 @@ if strcmpi('rectangle',shape) == 1
 
 
     
-    prompt7 = 'Width: ';
+    prompt7 = 'Width [px]: ';
     w = input(prompt7); % Width of Rectangle
     
     if w <= 0 %display error if width entered isn't positive
@@ -140,7 +141,7 @@ elseif strcmpi('circle',shape) == 1
             return
         end  %If more than 1 continue 
 
-        prompt5 = 'Center to Center distance: ';
+        prompt5 = 'Center to Center distance [px]: ';
         d = input(prompt5); %distance between each shape
 
     elseif strcmpi(n,'N') == 1
@@ -153,7 +154,7 @@ elseif strcmpi('circle',shape) == 1
     end 
 %-----------------------------------------------------
 
-    prompt6 = 'Radius: ';
+    prompt6 = 'Radius [px]: ';
     r = input(prompt6);
     
     if r <= 0 %display error if radius isn't positive
@@ -205,7 +206,7 @@ elseif strcmpi('polygon',shape) == 1
             return
         end
 
-        prompt5 = 'Center to Center distance: ';
+        prompt5 = 'Center to Center distance [px]: ';
         d = input(prompt5);
 
     elseif strcmpi(n,'N') == 1
@@ -230,7 +231,7 @@ elseif strcmpi('polygon',shape) == 1
         return
     end
 
-    prompt7 = 'Side Length: ';
+    prompt7 = 'Side Length [px]: ';
     L = input(prompt7);
 
    if L <= 0 %Display error if length is negative
@@ -246,7 +247,7 @@ elseif strcmpi('polygon',shape) == 1
     apexAngle = 2*pi/numTri;
     halfAngle = apexAngle/2;
 
-    % Height and base width determined by side length
+    %Height and base width determined by side length
     H = L*cos(halfAngle);
     B = 2*L*sin(halfAngle);
 
