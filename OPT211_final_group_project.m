@@ -96,7 +96,7 @@ if strcmpi('rectangle',shape) == 1
 
     
     prompt7 = 'Width [px]: ';
-    w = str2num(input(prompt7,'s'); % Width of Rectangle
+    w = str2num(input(prompt7,'s')); % Width of Rectangle
     
     if w <= 0 %display error if width entered isn't positive
         disp('Error. Width must be greater than 0. Please see help file for more information.')
