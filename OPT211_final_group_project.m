@@ -37,24 +37,38 @@ if strcmpi('rectangle',shape) == 1
     if strcmpi('Y',n) == 1
 
         prompt3 = 'Number of Rows: ';
-        numRow = input(prompt3);
+        numRow = str2num(input(prompt3,'s'));
 
         if numRow < 1 % If number of rows is less then 1 return
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return
-        end 
+        end %If more than 1 continue 
+
+        if isempty(numRow) % If number of rows entered isn't a numeric value
+            disp('Error. Number of rows must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
 
         prompt4 = 'Number of Columns: '; 
-        numCol = input(prompt4);
+        numCol = str2num(input(prompt4,'s'));
 
         if numCol < 1 % If number of Columns less than 1 return 
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
             return 
         end  %If more than 1 continue 
 
-        prompt5 = 'Center to Center distance: ';
-        d = input(prompt5); %distance between each shape
+        if isempty(numCol)
+            disp('Error. Number of columns must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
 
+        prompt5 = 'Center to Center distance: ';
+        d = str2num(input(prompt5,'s')); %distance between each shape
+        if isempty(d)
+            disp('Error. Center to distance must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
+        
     elseif strcmpi(n,'N') == 1
         numRow = 1;
         numCol = 1;
@@ -67,22 +81,32 @@ if strcmpi('rectangle',shape) == 1
     %----------------Prompts for Dimensions--------------
 
     prompt6 = 'Height [px]: ';
-    h = input(prompt6); % Height of Rectangle 
+    h = str2num(input(prompt6,'s')); % Height of Rectangle 
     
     if h <= 0 %display error if height entered isn't positive
         disp('Error. Height must be greater than 0. Please see help file for more information.')
         return 
     end
 
+        if isempty(h)
+            disp('Error. Height must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
+
 
     
     prompt7 = 'Width [px]: ';
-    w = input(prompt7); % Width of Rectangle
+    w = str2num(input(prompt7,'s'); % Width of Rectangle
     
     if w <= 0 %display error if width entered isn't positive
         disp('Error. Width must be greater than 0. Please see help file for more information.')
         return 
     end
+
+    if isempty(w)
+        disp('Error. Width must be a valid numeric value. Please see help file for more information.')
+        return 
+    end %If valid number continue
     
     %---------------------------------------------
 
@@ -126,23 +150,37 @@ elseif strcmpi('circle',shape) == 1
     if strcmpi('Y',n) == 1
 
         prompt3 = 'Number of Rows: ';
-        numRow = input(prompt3);
+        numRow = str2num(input(prompt3,'s'));
 
         if numRow < 1 %Display error if number of rows is less then 1
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return
         end 
 
-        prompt4 = 'Number of Columns: '; 
-        numCol = input(prompt4);
+        if isempty(numRow)
+            disp('Error. Number of rows must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
 
-        if numCol < 1 %Display error if number of Columns less than 1 
+        prompt4 = 'Number of Columns: '; 
+        numCol = str2num(input(prompt4,'s'));
+
+        if numCol < 1 % If number of Columns less than 1 return 
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
-            return
+            return 
         end  %If more than 1 continue 
 
-        prompt5 = 'Center to Center distance [px]: ';
-        d = input(prompt5); %distance between each shape
+        if isempty(numCol)
+            disp('Error. Number of columns must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
+
+        prompt5 = 'Center to Center distance: ';
+        d = str2num(input(prompt5,'s')); %distance between each shape
+        if isempty(d)
+            disp('Error. Center to distance must be a valid numeric value. Please see help file for more information.')
+            return 
+        end % If valid number continue
 
     elseif strcmpi(n,'N') == 1
         numRow = 1;
@@ -155,12 +193,17 @@ elseif strcmpi('circle',shape) == 1
 %-----------------------------------------------------
 
     prompt6 = 'Radius [px]: ';
-    r = input(prompt6);
+    r = str2num(input(prompt6,'s'));
     
     if r <= 0 %display error if radius isn't positive
         disp('Error. Radius must be greater than 0. Please see help file for more information.')
         return 
     end
+    if isempty(r)
+        disp('Error. Radius must be a valid numeric value. Please see help file for more information.')
+        return 
+    end % If valid number continue
+    
 
 
     % Define center positions for the circle lattice
@@ -191,23 +234,37 @@ elseif strcmpi('polygon',shape) == 1
     if strcmpi('Y',n) == 1
 
         prompt3 = 'Number of Rows: ';
-        numRow = input(prompt3);
+        numRow = str2num(input(prompt3,'s'));
 
-        if numRow < 1 %Display error if number of rows is less than 1 
+        if numRow < 1 %Display error if number of rows is less then 1
             disp('Error. Number of rows cannot be less than 1. Please see help file for more information.')
             return
-        end
+        end 
 
-        prompt4 = 'Number of Columns: ';
-        numCol = input(prompt4);
+        if isempty(numRow)
+            disp('Error. Number of rows must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
 
-        if numCol < 1 %Display error if number of columns is less than 1
+        prompt4 = 'Number of Columns: '; 
+        numCol = str2num(input(prompt4,'s'));
+
+        if numCol < 1 % If number of Columns less than 1 return 
             disp('Error. Number of columns cannot be less than 1. Please see help file for more information.')
-            return
-        end
+            return 
+        end  %If more than 1 continue 
 
-        prompt5 = 'Center to Center distance [px]: ';
-        d = input(prompt5);
+        if isempty(numCol)
+            disp('Error. Number of columns must be a valid numeric value. Please see help file for more information.')
+            return 
+        end %If valid number continue
+
+        prompt5 = 'Center to Center distance: ';
+        d = str2num(input(prompt5,'s')); %distance between each shape
+        if isempty(d)
+            disp('Error. Center to distance must be a valid numeric value. Please see help file for more information.')
+            return 
+        end % If valid number continue
 
     elseif strcmpi(n,'N') == 1
 
@@ -221,7 +278,7 @@ elseif strcmpi('polygon',shape) == 1
     end
 
     prompt6 = 'Number of Sides (3-25): ';
-    numTri = input(prompt6);
+    numTri = str2num(input(prompt6,'s'));
 
     if numTri < 3 %display error if number of sides is less than 3
         disp('Error. Number of sides cannot be less than 3. Please see help file for more information.')
@@ -231,13 +288,24 @@ elseif strcmpi('polygon',shape) == 1
         return
     end
 
+    if isempty(numTri)
+        disp('Error. Number of sides must be a valid numeric value. Please see help file for more information.')
+        return 
+    end %If valid number continue
+    
+
     prompt7 = 'Side Length [px]: ';
-    L = input(prompt7);
+    L = str2num(input(prompt7,'s'));
 
    if L <= 0 %Display error if length is negative
         disp('Error. Side length must be greater than 0. Please see help file for more information.')
         return 
     end
+
+    if isempty(L)
+        disp('Error. Length of sides must be a valid numeric value. Please see help file for more information.')
+        return 
+    end %If valid number continue
     
     % Define grid center positions
     rowCenters = c_row + ((1:numRow) - (numRow+1)/2) * d;
@@ -293,7 +361,7 @@ elseif strcmpi('polygon',shape) == 1
 %===================Invalid Input=========================================
 
 else %display error if invalid shape is input
-    disp('Error. Select a valid aperture shape. Please see help file for more information.')  
+    disp('Error. Need to select a valid aperture shape. Please see help file for more information.')  
     return
 end
 
