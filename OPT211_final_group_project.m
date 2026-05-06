@@ -1,14 +1,36 @@
 % Aurelio Fusco, Huy Nguyen, & Noah Selo
+%
 % Optics 211
+%
 % 5/4/2026
-% Final Project
-% This script allows the user to generate an aperture of their choosing,
+%
+%% Final Project
+% 
+%This script allows the user to generate an aperture of their choosing,
 % and prompts the user to input the shape of the aperture (Rectangle, 
 % Circle, Polygon with number of sides of users choice), number of
 % apertures, as well as the dimensions of the aperture(s). It then produces
 % a figure of the aperture, and its resulting diffraction pattern as an
 % image. Using this image, a cross section of the intensity is graphed 
 % across the x=0 and y=0 axies.
+%
+% It is worth noting that the user must answer the prompts correctly or 
+% else the script will give an error. For the shape of the aperture, the
+% user MUST type out the correctly spelled shape desired (Rectangle, 
+% Circle, Polygon), otherwise the script will give an error and end. This 
+% also applies to the Y/N for multiple apertures, which the user MUST type
+% either "Y" or "N", otherwise the script will give an error and end. For 
+% the dimensions of the square aperture, radius of circular aperture, number
+% of sides of the polygon aperture as well as its side length, number of rows
+% and columns for multiple apertures, the user MUST enter only positive 
+% numerical values, otherwise the script will give an error and end. 
+%
+%% Note:
+% The only exception for these variables is that the center to distance variable
+% CAN be negative if the user desires, since it will produce the same aperture 
+% regardless of being positive or negative. Also, as prompted, the number of sides
+% will give an error if the values are smaller than 3 and larger than 25. 
+
 
 
 close all;
