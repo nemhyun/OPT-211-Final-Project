@@ -6,7 +6,7 @@
 %
 %% Final Project
 % 
-%This script allows the user to generate an aperture of their choosing,
+% This script allows the user to generate an aperture of their choosing,
 % and prompts the user to input the shape of the aperture (Rectangle, 
 % Circle, Polygon with number of sides of users choice), number of
 % apertures, as well as the dimensions of the aperture(s). It then produces
