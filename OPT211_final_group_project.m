@@ -434,11 +434,11 @@ ylabel(colorbar, 'Intensity') % Labels the colorbar
 %% =================CROSS SECTIONS=================
 
 % Center of diffraction pattern
-center = round(apl/2);
+center = c_row;
 
 % Extract cross sections
-Ix = intensity_rescaled(center, :);   % Horizontal
-Iy = intensity_rescaled(:, center);   % Vertical
+Ix = intensity_rescaled(center, :);    % Horizontal
+Iy = intensity_rescaled(:, center);    % Vertical
 
 % Normalize
 Ix = Ix / max(Ix);
@@ -447,18 +447,21 @@ Iy = Iy / max(Iy);
 % Centered coordinate axis
 coords = (-apl/2):(apl/2 - 1);
 
+% Zoomed plotting range around center
+range = center-300:center+300;
+
 %--------HORIZONTAL--------
 figure
-plot(coords, Ix, 'LineWidth', 1.5)
+plot(coords(range), Ix(range), 'LineWidth', 1.5)
 title('Horizontal Cross Section (y = 0)')
 xlabel('Spatial Coordinate (pixels)')
-ylabel('Intensity')
+ylabel('Normalized Intensity')
 grid on
 
 %--------VERTICAL--------
 figure
-plot(coords, Iy, 'LineWidth', 1.5)
+plot(coords(range), Iy(range), 'LineWidth', 1.5)
 title('Vertical Cross Section (x = 0)')
 xlabel('Spatial Coordinate (pixels)')
-ylabel('Intensity')
+ylabel('Normalized Intensity')
 grid on
