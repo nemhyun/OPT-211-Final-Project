@@ -14,7 +14,7 @@
 % apertures, as well as the dimensions of the aperture(s). It then produces
 % a figure of the aperture, and its resulting diffraction pattern as two 
 % images- one of the full image (5000px by 5000px) and one of a zoomed 
-% in image 250px by 250px image. Using this image, a cross section of the 
+% in image (250px by 250px). Using this image, a cross section of the 
 % intensity is graphed across the x=0 and y=0 axies.
 %
 % It is worth noting that the user must answer the prompts correctly or 
