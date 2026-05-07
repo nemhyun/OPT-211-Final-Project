@@ -1,5 +1,7 @@
 % Aurelio Fusco, Huy Nguyen, & Noah Selo
 %
+% 5th Gear Photonics
+%
 % Optics 211
 %
 % 5/4/2026
@@ -451,7 +453,7 @@ range = center-300:center+300;
 
 %--------HORIZONTAL--------
 figure
-plot(coords(range), Ix(range), 'LineWidth', 1.5)
+plot(coords(range), Ix(range), 'LineWidth', 1)
 title('Horizontal Cross Section (y = 0)')
 xlabel('Spatial Coordinate (pixels)')
 ylabel('Normalized Intensity')
@@ -459,7 +461,7 @@ grid on
 
 %--------VERTICAL--------
 figure
-plot(coords(range), Iy(range), 'LineWidth', 1.5)
+plot(coords(range), Iy(range), 'LineWidth', 1)
 title('Vertical Cross Section (x = 0)')
 xlabel('Spatial Coordinate (pixels)')
 ylabel('Normalized Intensity')
