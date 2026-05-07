@@ -413,7 +413,7 @@ figure
 imagesc(intensity_rescaled)  % Plot image of the aperture field 
 colormap hot % Set the color of the aperture field plot 
 axis image % Set the display scale of the axes 
-title('Full-Field Far Diffraction Pattern') % Title of plot
+title('Full Far-Field Diffraction Pattern') % Title of plot
 xlabel('Pixels') % Labels x axis
 ylabel('Pixels') % Labels y axis
 colorbar % Adds a colorbar
@@ -426,7 +426,7 @@ imagesc(intensity_rescaled)  % Plot image of the aperture field
 colormap hot % Set the color of the aperture field plot 
 axis equal % Set the display scale of the axes 
 axis([(apl-250)/2 (apl+250)/2 (apl-250)/2 (apl+250)/2]) % Zooms the field in
-title('Center-Field Far Diffraction Pattern') % Title of plot
+title('Center Far-Field Diffraction Pattern') % Title of plot
 xlabel('Pixels') % Labels x axis
 ylabel('Pixels') % Labels y axis
 colorbar % Adds a colorbar
